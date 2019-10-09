@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EF_CRUD.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Insert")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeMobile)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeCity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeMobile)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeCity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Update", new { id=item.EmployeeId }) |
+            @Html.ActionLink("ViewById", "ViewById", new { id=item.EmployeeId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeId })
+        </td>
+    </tr>
+}
+
+</table>
